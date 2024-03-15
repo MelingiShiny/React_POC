@@ -1,0 +1,23 @@
+.homeBody {
+    background-color: #e5e7e9;
+    height: 100%;
+}
+
+.card {
+    width: 40%;
+    height:fit-content;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 10px 10px 5px rgb(126, 141, 146);
+}
+
+.part{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 5px 0;
+}

@@ -1,0 +1,25 @@
+.primary_nav {
+    
+    background-color: rgb(238, 193, 139);
+
+padding: 0px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+nav a {
+    margin-right: 16px;
+}
+
+nav a.active {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.primary_nav h1 {
+    color: #000;
+}

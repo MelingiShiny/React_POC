@@ -1,0 +1,95 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay .ReactModal__Content{
+    width:30%;
+    height:35%;
+    inset: none;
+}
+
+.addButton {
+    padding: 10px;
+    margin: 10px;
+    font-size: 32px;
+    font-weight: 900;
+    color: #770202;
+    background-color: cornsilk;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.newBook {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 200px;
+    text-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px 5px darkgrey
+}
+
+
+.newBook h3 {
+    color: rgb(130, 13, 130);
+    margin: 3px 0;
+}
+
+.newBook span {
+    margin: 3px 0 5px;
+}
+
+.fontButtons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.fontButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+h2{
+    margin-top:0
+}
+
+.label{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.label input, .label textarea{
+    margin-top:6px;
+}
+
+.submitButton, .closeButton{
+    width: 40%;
+    height: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submitButton{
+    background: #598d59;
+}
+
+.closeButton{
+    background-color: #f75f5f;
+}
