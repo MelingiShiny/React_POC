@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import styles from '../Styles/MyBooks.module.css'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import styles from '../Styles/MyBooks.module.css';
+import ButtonClick from '../Components/ButtonClick.js'
+import Card from '../Components/Card.js';
+import CustomModal from '../Components/CustomModal.js';
 
 export const MyBooks = () => {
     const [backgroundColor, setBackgroundColor] = useState(getRandomColor());
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [textChange, setextChange] = useState(false);
     const [deleted, setDeleted] = useState(false)
     const [items, setItems] = useState(() => {
         const savedItems = localStorage.getItem('myBooks');
@@ -32,20 +36,25 @@ export const MyBooks = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const openModal = () =>  setModalIsOpen(true);
+    const openModal = () => setModalIsOpen(true);
     const closeModal = () => {
         setModalIsOpen(false);
         setSelectedItemIndex(null);
     };
 
+    const addBook = () => {
+        openModal();
+        setextChange(true)
+    }
+
     const openDeletedModal = () => {
-        
-     setDeleted(true);
+
+        setDeleted(true);
         setTimeout(() => {
             setDeleted(false);
-          }, 1000);
-        }
-    const closeDeletedModal = ()=>{
+        }, 1000);
+    }
+    const closeDeletedModal = () => {
         setDeleted(false);
     }
 
@@ -54,6 +63,7 @@ export const MyBooks = () => {
         setItems([...items, newItem]);
         saveItemsToLocalStorage([...items, newItem]);
         closeModal();
+        setextChange(false)
         setTitle('');
         setDescription('');
     };
@@ -63,6 +73,7 @@ export const MyBooks = () => {
         const selectedItem = items[index];
         setTitle(selectedItem.title);
         setDescription(selectedItem.description);
+        setextChange(false)
         openModal();
     };
 
@@ -80,7 +91,28 @@ export const MyBooks = () => {
         saveItemsToLocalStorage(updatedItems);
         setTitle('');
         setDescription('');
+        setextChange(true)
         closeModal();
+    };
+
+    const handleTitleChange = (e) => {
+        if (e) {
+
+            setTitle(e.target.value);
+        }
+        else {
+            setTitle('');
+        }
+    };
+
+    const handleDescriptionChange = (e) => {
+        if (e) {
+
+            setDescription(e.target.value);
+        }
+        else {
+            setDescription('');
+        }
     };
 
     const saveItemsToLocalStorage = (items) => {
@@ -88,72 +120,43 @@ export const MyBooks = () => {
     };
 
     return (
-        <div style={{ backgroundColor: '#e5e7e9', minHeight: '100vh', display: 'flex' ,flexDirection:'column', alignItems: 'flex-start' }}>
+        <div style={{ backgroundColor: '#e5e7e9', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <div>
-                <button className={styles.addButton} onClick={openModal}>Add book</button>
+                <ButtonClick text="Add Book" className={styles.addButton} onClick={addBook} />
             </div>
 
-            <Modal
+            <CustomModal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
-                contentLabel="Add Item Modal"
-                overlayClassName={styles.overlay}
-                appElement={document.getElementById('root')}
-                style={{
-                    
-          content: {
-            width: '40%',
-            height: '35%',
-            margin: 'auto',
-          }
-        }
-                }
+                title={title}
+                description={description}
+                handleChangeTitle={handleTitleChange}
+                handleChangeDescription={handleDescriptionChange}
+                handleSubmitEdit={handleSubmitEdit}
+                handleAddItem={handleAddItem}
+                handleCancel={closeModal}
+                addItemBoolean={textChange}
+                overlayClassName={styles.overlay} // Optionally pass overlay class name
+                modalStyle={{ content: {  width: '40%',
+                height: '35%',
+                margin: 'auto', } }} // Optionally pass custom modal style
+                contentLabel="Custom Modal"
+            />
 
-            >
-                <h2>{selectedItemIndex !== null ? 'Edit Item' : 'Add Item'}</h2>
-                <div style={{ marginBottom: '10px' }}>
-                    <label className={styles.label}>Title:</label>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        style={{ width: '100%', boxSizing: 'border-box' }}
-                    />
-                </div>
-                <div style={{ marginBottom: '10px' }}>
-                    <label className={styles.label}>Description:</label>
-                    <textarea
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        style={{ width: '100%', boxSizing: 'border-box' }}
-                    />
-                </div>
-                <div style={{display:'flex', justifyContent:'space-evenly'}}>
-                    {selectedItemIndex !== null ? (
-                        <button onClick={handleSubmitEdit} className={styles.submitButton}>Save Changes</button>
-                    ) : (
-                        <button onClick={handleAddItem} className={styles.submitButton}>Submit</button>
-                    )}
-                    <button onClick={closeModal} className={styles.closeButton}>Cancel</button>
-                </div>
-            </Modal>
-
-            <div style={{display:'flex'}}>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {items.map((item, index) => (
-                    <div key={index} style={{ backgroundColor}} className={styles.newBook}>
-                        <div  className={styles.fontButtons}>
-                            <button onClick={() => handleEditItem(index)}>
-                                <FontAwesomeIcon icon={faEdit} />
-                            </button>
-                            <button onClick={() => handleDeleteItem(index)}>
-                                <FontAwesomeIcon icon={faTrash} />
-                            </button>
-                        </div>
-                        <h3>Title</h3><span>{item.title}</span>
-                        <h3>Description</h3><span>{item.description}</span>
-                    </div>
+                    <Card className={styles.card}
+                        item={item}
+                        index={index}
+                        handleEditItem={handleEditItem}
+                        handleDeleteItem={handleDeleteItem}
+                        backgroundColor={backgroundColor}
+                    />
+
                 ))}
             </div>
+
+
 
             <Modal
                 isOpen={deleted}
@@ -162,16 +165,16 @@ export const MyBooks = () => {
                 overlayClassName={styles.overlay}
                 appElement={document.getElementById('root')}
                 style={{
-                    
-          content: {
-            width: '25%',
-            height: '13%',
-            display: 'flex',
-            margin: 'auto',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }
-        }
+
+                    content: {
+                        width: '25%',
+                        height: '13%',
+                        display: 'flex',
+                        margin: 'auto',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }
+                }
                 }
 
             >

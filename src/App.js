@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import { Home } from './Pages/Home';
 import { Navbar } from './Pages/Navbar';
@@ -16,6 +16,7 @@ function App() {
         <Route path="/books-list" element={<BooksList></BooksList>}></Route>
         <Route path="/my-list" element={<MyBooks></MyBooks>}></Route>
         <Route path="/about" element={<About></About>}></Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
     </>

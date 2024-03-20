@@ -76,6 +76,11 @@ h2{
     margin-top:6px;
 }
 
+.card{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .submitButton, .closeButton{
     width: 40%;
     height: 50px;

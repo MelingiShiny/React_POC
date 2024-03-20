@@ -21,3 +21,15 @@
     width: 100%;
     padding: 5px 0;
 }
+
+.booksList{
+     background: linear-gradient(to right, #ffffff, rgb(255 125 0));
+     font-weight: 900;
+     font-size: 32px;
+     padding: 20px;
+     margin-top: 5px;
+     border-radius: 5px;
+     color: #000;
+     margin-bottom: 10%;
+     cursor: pointer
+}
