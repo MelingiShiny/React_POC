@@ -1,9 +1,10 @@
 import React from 'react'
 import book from '../Images/books.jpg'
 import book1 from '../Images/books1.jpg'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import styles from '../Styles/Home.module.css'
 import ButtonClick from '../Components/ButtonClick'
+import { Link } from 'react-router-dom'
 
 const buttonDesp = {
   margin: '5% 0 0',
@@ -13,19 +14,6 @@ const buttonDesp = {
   flexDirection: 'column',
   alignItems: 'center'
 }
-
-// const button = {
-//   background: 'linear-gradient(to right, #ffffff, rgb(255 125 0))',
-//   fontWeight: '900',
-//   fontSize: '32px',
-//   padding: '20px',
-//   marginTop: '5px',
-//   borderRadius: '5px',
-//   color: '#000',
-//   marginBottom: '10%',
-//   cursor: 'pointer'
-
-// }
 
 export const Home = () => {
 
@@ -61,8 +49,10 @@ export const Home = () => {
           </div>
         <div style={buttonDesp}>
           <div>Here are some of the books from <b>Reading Garden</b>.....</div>
-          {/* <button onClick={() => navigate('books-list')} style={button}> Books List</button> */}
-          <ButtonClick text="Books List" className={styles.booksList} onClick={() => navigate('books-list')} />
+          <Link to="books-list">
+            <ButtonClick text="Books List" className={styles.booksList} onClick={() => navigate('books-list')} />
+          </Link>
+          <Outlet></Outlet>
         </div>
       </div>
 

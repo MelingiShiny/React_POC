@@ -19,6 +19,8 @@ export const MyBooks = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+    const [titleError, setTitleError] = useState('');
+    const [descriptionError, setDescriptionError] = useState('');
 
     function getRandomColor() {
         const randomChannel = () => Math.floor(Math.random() * 100 + 155); // Generate values between 155-255
@@ -36,10 +38,16 @@ export const MyBooks = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const openModal = () => setModalIsOpen(true);
+    const openModal = () => {
+        setTitleError('')
+        setDescriptionError('')
+        setModalIsOpen(true);
+    }
     const closeModal = () => {
         setModalIsOpen(false);
         setSelectedItemIndex(null);
+        setTitle('');
+        setDescription('');
     };
 
     const addBook = () => {
@@ -59,13 +67,19 @@ export const MyBooks = () => {
     }
 
     const handleAddItem = () => {
-        const newItem = { title, description };
-        setItems([...items, newItem]);
-        saveItemsToLocalStorage([...items, newItem]);
-        closeModal();
-        setextChange(false)
-        setTitle('');
-        setDescription('');
+        handleErrors(title, description)
+        if (title !== '' && description !== '') {
+            const newItem = { title, description };
+            setItems([...items, newItem]);
+            saveItemsToLocalStorage([...items, newItem]);
+            closeModal();
+            setextChange(false)
+            setTitle('');
+            setDescription('');
+        }
+
+
+
     };
 
     const handleEditItem = (index) => {
@@ -85,24 +99,35 @@ export const MyBooks = () => {
     };
 
     const handleSubmitEdit = () => {
-        const updatedItems = [...items];
-        updatedItems[selectedItemIndex] = { title, description };
-        setItems(updatedItems);
-        saveItemsToLocalStorage(updatedItems);
-        setTitle('');
-        setDescription('');
-        setextChange(true)
-        closeModal();
+        handleErrors(title, description)
+        if (title !== '' && description !== '') {
+            const updatedItems = [...items];
+            updatedItems[selectedItemIndex] = { title, description };
+            setItems(updatedItems);
+            saveItemsToLocalStorage(updatedItems);
+            setTitle('');
+            setDescription('');
+            setextChange(true)
+            closeModal();
+        }
     };
 
-    const handleTitleChange = (e) => {
-        if (e) {
-
-            setTitle(e.target.value);
+    const handleErrors = (title, description) => {
+        if (title === '') {
+            setTitleError('Title is required');
+        } else {
+            setTitleError('');
+        }
+        if (description === '') {
+            setDescriptionError('Description is required')
         }
         else {
-            setTitle('');
+            setDescriptionError('')
         }
+    }
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
     };
 
     const handleDescriptionChange = (e) => {
@@ -120,9 +145,9 @@ export const MyBooks = () => {
     };
 
     return (
-        <div style={{ backgroundColor: '#e5e7e9', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <div style={{ backgroundColor: '#e8f9f7', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <div>
-                <ButtonClick text="Add Book" className={styles.addButton} onClick={addBook} />
+                <ButtonClick text="Add Book" backgroundColor={backgroundColor} className={styles.addButton} onClick={addBook} />
             </div>
 
             <CustomModal
@@ -136,10 +161,16 @@ export const MyBooks = () => {
                 handleAddItem={handleAddItem}
                 handleCancel={closeModal}
                 addItemBoolean={textChange}
+                titleError={titleError}
+                descriptionError={descriptionError}
                 overlayClassName={styles.overlay} // Optionally pass overlay class name
-                modalStyle={{ content: {  width: '40%',
-                height: '35%',
-                margin: 'auto', } }} // Optionally pass custom modal style
+                modalStyle={{
+                    content: {
+                        width: '40%',
+                        height: '35%',
+                        margin: 'auto',
+                    }
+                }} // Optionally pass custom modal style
                 contentLabel="Custom Modal"
             />
 
@@ -150,13 +181,11 @@ export const MyBooks = () => {
                         index={index}
                         handleEditItem={handleEditItem}
                         handleDeleteItem={handleDeleteItem}
-                        backgroundColor={backgroundColor}
+                        
                     />
 
                 ))}
             </div>
-
-
 
             <Modal
                 isOpen={deleted}

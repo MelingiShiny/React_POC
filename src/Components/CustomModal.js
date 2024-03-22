@@ -15,6 +15,8 @@ function CustomModal(props) {
         handleCancel,
         overlayClassName,
         modalStyle,
+        titleError,
+        descriptionError,
         contentLabel,
         addItemBoolean
     } = props;
@@ -44,6 +46,7 @@ function CustomModal(props) {
                     onChange={handleChangeTitle}
                     style={{ width: '100%', boxSizing: 'border-box' }}
                 />
+                {titleError && <p className={styles.error}>{titleError}</p>}
             </div>
             <div style={{ marginBottom: '10px' }}>
                 <label className={styles.label}>Description:</label>
@@ -52,6 +55,7 @@ function CustomModal(props) {
                     onChange={handleChangeDescription}
                     style={{ width: '100%', boxSizing: 'border-box' }}
                 />
+                {descriptionError && <p className={styles.error}>{descriptionError}</p>}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                 {addItemBoolean ? (<button onClick={handleAddItem} className={styles.submitButton}>

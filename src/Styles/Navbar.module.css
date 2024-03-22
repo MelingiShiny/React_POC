@@ -1,6 +1,6 @@
 .primary_nav {
     
-    background-color: rgb(238, 193, 139);
+    background-color: #f4c2c2;
 
 padding: 0px 32px;
     display: flex;
@@ -21,5 +21,13 @@ nav a.active {
 }
 
 .primary_nav h1 {
-    color: #000;
+    color: #000080;
+}
+
+.button{
+    background-color: rgb(189, 243, 243);
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
 }

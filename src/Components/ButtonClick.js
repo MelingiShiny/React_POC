@@ -1,8 +1,8 @@
 import React from 'react'
 
-function ButtonClick(props) {
+function ButtonClick({onClick, className,text, backgroundColor}) {
   return (
-    <button onClick={props.onClick} className={props.className} >{props.text}</button>
+    <button onClick={onClick} className={className} style={{backgroundColor}}>{text}</button>
   )
 }
 

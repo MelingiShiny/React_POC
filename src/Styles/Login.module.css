@@ -1,0 +1,38 @@
+.loginCard{
+    width:15%;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+
+}
+
+.mainlogin{
+    background-image: url('../Images/Login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label{
+padding-right:3%;
+font-size:14px;
+font-weight:400
+}
+
+.loginButton{
+    padding:10px;
+    font-size:16px;
+    background-color: rgb(60, 140, 60);
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    border-radius: 5px;
+    border-color: rgb(60, 140, 60);
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}

@@ -21,11 +21,10 @@
     margin: 10px;
     font-size: 32px;
     font-weight: 900;
-    color: #770202;
+    color: #000;
     background-color: cornsilk;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center;
 }
 
 .newBook {
@@ -37,7 +36,7 @@
     text-wrap: wrap;
     display: flex;
     flex-direction: column;
-    box-shadow: 10px 10px 5px darkgrey
+    background-color: #fff;
 }
 
 
@@ -97,4 +96,10 @@ h2{
 
 .closeButton{
     background-color: #f75f5f;
+}
+
+.error{
+    margin:0;
+    font-size:10px;
+    color:red;
 }

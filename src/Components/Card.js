@@ -2,12 +2,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import styles from '../Styles/MyBooks.module.css';
+import myBookstyles from '../Styles/MyBooks.module.css';
 
 const Card = ({ item, index, handleEditItem, handleDeleteItem, backgroundColor }) => {
     return (
-        <div key={index} style={{ backgroundColor }} className={styles.newBook}>
-            <div className={styles.fontButtons}>
+        <div key={index}className={myBookstyles.newBook}>
+            <div className={myBookstyles.fontButtons}>
                 <button onClick={() => handleEditItem(index)}>
                     <FontAwesomeIcon icon={faEdit} />
                 </button>
