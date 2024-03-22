@@ -23,30 +23,30 @@ export const Home = () => {
     <>
 
       <div className={styles.homeBody}>
-          <div className={styles.part}>
-            <img src={book} width="30%" height="30%" alt="logo" />
-            <div className={styles.card}>
-              Reading books helps in making one’s vocabulary and literacy skills strong. Reading a variety of content writing books can help one understand thoroughly the use of words and phrases, the meaning of certain words and the ways to convey a purpose.
+        <div className={styles.part}>
+          <img src={book} width="30%" height="30%" alt="logo" />
+          <div className={styles.card}>
+            Reading books helps in making one’s vocabulary and literacy skills strong. Reading a variety of content writing books can help one understand thoroughly the use of words and phrases, the meaning of certain words and the ways to convey a purpose.
 
-              Every writer has their own style to convey a message or a purpose on which the book is being written, therefore reading numerous content writing books can help one understand the intensity at which novels and other books convey their purpose.
+            Every writer has their own style to convey a message or a purpose on which the book is being written, therefore reading numerous content writing books can help one understand the intensity at which novels and other books convey their purpose.
 
-              Many times there are writers stuck even after writing the main plot of their book, they find it difficult to write the perfect ending for it, reading books can help it to another level.
-            </div>
+            Many times there are writers stuck even after writing the main plot of their book, they find it difficult to write the perfect ending for it, reading books can help it to another level.
           </div>
-          <div className={styles.part}>
-            <div className={styles.card}>
-              <b>How Do Content Writing Books Help - </b>
-              These content writing books are loaded with information based on many valuable case studies done by experienced and successful content writers.
+        </div>
+        <div className={styles.part}>
+          <div className={styles.card}>
+            <b>How Do Content Writing Books Help - </b>
+            These content writing books are loaded with information based on many valuable case studies done by experienced and successful content writers.
 
-              The terms at which content writing was used decades ago could be changed but the fundamental idea behind a content that serves a purpose will remain the same.
+            The terms at which content writing was used decades ago could be changed but the fundamental idea behind a content that serves a purpose will remain the same.
 
-              Therefore these books written by great authors and also companies that have been providing content writing course for a remarkable period of time who continuously make efforts to dissect the concept of content writing, therefore, defining new terms in which content writing could be used effectively and profitably.
+            Therefore these books written by great authors and also companies that have been providing content writing course for a remarkable period of time who continuously make efforts to dissect the concept of content writing, therefore, defining new terms in which content writing could be used effectively and profitably.
 
-              Content writing books are a direct source of content writing tips and tricks that can help a writer develop their skills on this specific domain.
-            </div>
-            <img src={book1} width="30%" height="30%" alt="logo" />
-
+            Content writing books are a direct source of content writing tips and tricks that can help a writer develop their skills on this specific domain.
           </div>
+          <img src={book1} width="30%" height="30%" alt="logo" />
+
+        </div>
         <div style={buttonDesp}>
           <div>Here are some of the books from <b>Reading Garden</b>.....</div>
           <Link to="books-list">

@@ -10,9 +10,9 @@
     align-items: center;
 }
 
-.overlay .ReactModal__Content{
-    width:30%;
-    height:35%;
+.overlay .ReactModal__Content {
+    width: 30%;
+    height: 35%;
     inset: none;
 }
 
@@ -62,25 +62,27 @@
     width: 100%;
 }
 
-h2{
-    margin-top:0
+h2 {
+    margin-top: 0
 }
 
-.label{
+.label {
     font-size: 16px;
     font-weight: 600;
 }
 
-.label input, .label textarea{
-    margin-top:6px;
+.label input,
+.label textarea {
+    margin-top: 6px;
 }
 
-.card{
+.card {
     display: flex;
     flex-wrap: wrap;
 }
 
-.submitButton, .closeButton{
+.submitButton,
+.closeButton {
     width: 40%;
     height: 50px;
     color: white;
@@ -90,16 +92,16 @@ h2{
     cursor: pointer;
 }
 
-.submitButton{
+.submitButton {
     background: #598d59;
 }
 
-.closeButton{
+.closeButton {
     background-color: #f75f5f;
 }
 
-.error{
-    margin:0;
-    font-size:10px;
-    color:red;
+.error {
+    margin: 0;
+    font-size: 10px;
+    color: red;
 }

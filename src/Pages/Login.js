@@ -56,24 +56,24 @@ const Login = ({ onLogin }) => {
     return (
         <div className={loginStyles.mainlogin}>
             <div className={loginStyles.loginCard}>
-                <h2 style={{textAlign:'center', marginBottom:'0px'}}>Login</h2>
-                <div style={{padding:'10px'}}>
+                <h2 style={{ textAlign: 'center', marginBottom: '0px' }}>Login</h2>
+                <div style={{ padding: '10px' }}>
                     <label className={loginStyles.label}>Username:</label>
                     <input
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
-                    {usernameError && <div style={{ color: 'red', fontSize:'9px' }}>{usernameError}</div>}
+                    {usernameError && <div style={{ color: 'red', fontSize: '9px' }}>{usernameError}</div>}
                 </div>
-                <div style={{padding:'10px'}}>
+                <div style={{ padding: '10px' }}>
                     <label className={loginStyles.label}>Password:</label>
                     <input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    {passwordError && <div style={{ color: 'red', fontSize:'9px' }}>{passwordError}</div>}
+                    {passwordError && <div style={{ color: 'red', fontSize: '9px' }}>{passwordError}</div>}
                 </div>
                 <button onClick={handleLogin} className={loginStyles.loginButton}>Login</button>
             </div>

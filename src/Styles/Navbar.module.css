@@ -1,8 +1,8 @@
 .primary_nav {
-    
+
     background-color: #f4c2c2;
 
-padding: 0px 32px;
+    padding: 0px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,7 +24,7 @@ nav a.active {
     color: #000080;
 }
 
-.button{
+.button {
     background-color: rgb(189, 243, 243);
     padding: 10px;
     font-size: 14px;

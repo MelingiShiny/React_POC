@@ -29,14 +29,14 @@ export const BooksList = () => {
 
     return (
         <>
-            <div style={{height:'100vh',backgroundColor:'#e8f9f7'}}>
-                <label className={styles.label}>Search - 
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchQuery}
-                    onChange={handleSearch}
-                />
+            <div style={{ height: '100vh', backgroundColor: '#e8f9f7' }}>
+                <label className={styles.label}>Search -
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        value={searchQuery}
+                        onChange={handleSearch}
+                    />
                 </label>
                 <div className={styles.bookList}>
                     {

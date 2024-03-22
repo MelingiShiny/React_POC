@@ -5,7 +5,7 @@
 
 .card {
     width: 40%;
-    height:fit-content;
+    height: fit-content;
     border: solid 1px black;
     border-radius: 5px;
     padding: 30px;
@@ -13,8 +13,8 @@
     box-shadow: 10px 10px 5px rgb(126, 141, 146);
 }
 
-.part{
-    display:flex;
+.part {
+    display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -22,14 +22,14 @@
     padding: 5px 0;
 }
 
-.booksList{
-     background: linear-gradient(to right, #ffffff, rgb(255 125 0));
-     font-weight: 900;
-     font-size: 32px;
-     padding: 20px;
-     margin-top: 5px;
-     border-radius: 5px;
-     color: #000;
-     margin-bottom: 33%;
-     cursor: pointer
+.booksList {
+    background: linear-gradient(to right, #ffffff, rgb(255 125 0));
+    font-weight: 900;
+    font-size: 32px;
+    padding: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: #000;
+    margin-bottom: 33%;
+    cursor: pointer
 }

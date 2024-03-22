@@ -28,16 +28,16 @@ export const About = () => {
 
     return (
         <div className="aboutPage">
-<div className="carouselContainer">
-            <Slider {...settings}>
-                {Images.map((image, index) => (
-                    <div key={index}>
-                        <img src={image} alt={`Slide ${index + 1}`} />
-                    </div>
-                ))}
-            </Slider>
+            <div className="carouselContainer">
+                <Slider {...settings}>
+                    {Images.map((image, index) => (
+                        <div key={index}>
+                            <img src={image} alt={`Slide ${index + 1}`} />
+                        </div>
+                    ))}
+                </Slider>
+            </div>
         </div>
-        </div>
-        
+
     );
 };

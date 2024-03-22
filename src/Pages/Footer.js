@@ -3,7 +3,7 @@ import linkedin from '../Images/linkedin.png'
 import facebook from '../Images/facebook.jpg'
 import styles from '../Styles/Footer.module.css'
 
-export const Footer = ({ loggedInUser}) => {
+export const Footer = ({ loggedInUser }) => {
   return (loggedInUser ? (
     <div className={styles.footer}>
       <div>Follow us on</div>
@@ -15,6 +15,6 @@ export const Footer = ({ loggedInUser}) => {
         Copyrights @2024 Writer
       </div>
     </div>
-  ): null
+  ) : null
   )
 }

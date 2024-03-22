@@ -5,7 +5,7 @@
     background-color: #e8f9f7;
 }
 
-.bookCard  {
+.bookCard {
     padding: 10px;
     margin: 20px 10px;
     border: solid 1px black;
@@ -19,15 +19,15 @@
     font-size: 14px;
 }
 
-.label{
+.label {
     font-size: 16px;
     padding: 5%;
 }
 
-.label input{
+.label input {
     padding: 10px;
 }
 
-.bookCard img{
+.bookCard img {
     padding-bottom: 5px;
 }
