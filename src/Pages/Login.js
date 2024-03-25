@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import loginStyles from '../Styles/Login.module.css';
-// import login from '../Images/Login.jpg'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('');
@@ -46,6 +47,14 @@ const Login = ({ onLogin }) => {
         if (user) {
             // Call onLogin prop with the user data
             onLogin(true);
+            toast.success('User Successfully logged in.', {
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              });
             // Redirect to home page
             navigate('/home');
         } else {

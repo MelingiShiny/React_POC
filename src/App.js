@@ -9,6 +9,7 @@ import { MyBooks } from './Pages/MyBooks';
 import { About } from './Pages/About';
 import Login from './Pages/Login';
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -37,6 +38,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       {loggedInUser && <Footer loggedInUser={loggedInUser} onLogout={handleLogout} />}
+      <ToastContainer />
     </>
   )
 }
