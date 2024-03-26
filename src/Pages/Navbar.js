@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import navbarStyles from '../Styles/Navbar.module.css';
 
@@ -44,7 +44,6 @@ export const Navbar = ({ loggedInUser, onLogout }) => {
         <button onClick={handleLogout} className={navbarStyles.button}>
           Logout
         </button>
-        <ToastContainer />
       </div>
     </nav>
   ) : null
